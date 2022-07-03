@@ -13,6 +13,9 @@ let ctx = canvas.getContext('2d');
 let cty = canvas.getContext('2d');
 ctx.beginPath();
 let x = canvas.parentNode.offsetWidth - 50
+if((canvas.parentNode.offsetWidth - 50)!= x ){
+	x = canvas.parentNode.offsetWidth - 50
+}
 canvas.setAttribute('width', `${x}px`) ;
 let y = canvas.offsetWidth - 70
 ctx.strokeStyle = 'lightcyan';

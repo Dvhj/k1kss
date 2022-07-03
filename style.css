@@ -6,23 +6,27 @@
 	cursor: default;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 ::selection{
 	background: #ff9852
 }
 
 body {
-	background-color: black;
+	background: #1C1B21;;
 	overflow-x: hidden;
+
 }
 
 header {
 	height: 1200px;
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #1C1B21 92.19%), url('https://images.unsplash.com/photo-1626126525134-fbbc07afb32c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
-/*	background-image: url('https://images.unsplash.com/photo-1626126525134-fbbc07afb32c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');*/
 	background-size: cover;
 	background-position: center;
-/*	filter: blur(0.6px);*/
-	background-attachment: fixed;
+/*  filter: blur(0.6px); */
+/*	background-attachment: fixed;*/
 }
 
 .header_container {
@@ -76,23 +80,19 @@ a:active {
 
 .title{
 	color: rgba(255, 255, 255, 0.8);
-	font-size: 100px;
+	font-size: calc(30px + 70 * (100vw / 1920));
 	line-height: 150px;
 	text-shadow: -6px 6px 0px rgba(255,255,255,0.2);
-/*	text-shadow: -5px 5px 0px #c29dfa,
-							 -10px 10px 0px #934ffa,
-							 -15px 15px 0px #6600ff;*/
 	transition: transform 1s, color 2s, text-shadow 1s ;
 }
 
 .title:hover {
 	transition: transform 1s, color 2s, text-shadow 1s;
-	transform:/* rotate(5deg)*/  translate(100px);
-/*	text-shadow: none;*/
+	transform: translate(100px);
 	color:lightcyan;
-		text-shadow: -5px 5px 0px #c29dfa,
-							 -10px 10px 0px #934ffa,
-							 -15px 15px 0px #6600ff;
+	text-shadow: -5px 5px 0px #c29dfa,
+							-10px 10px 0px #934ffa,
+							-15px 15px 0px #6600ff;
 }
 
 
@@ -170,21 +170,33 @@ audio {
 
 
 .news {
-	margin-top: 116px;
+	margin-top: 200px;
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .news_box{
 	width: 30%;
-	height: 400px;
+	height: 300px;
 	border-radius: 20px 0 20px 0;
 	background-size: cover;
 	background-position: center;
 	display: flex;
 	justify-content: end;
 	flex-direction: column;
+	transition: transform 0.5s, box-shadow 0.5s;
 }
+
+.news_box:hover {
+/*	transform: scale(1.005);*/
+	box-shadow: -10px -10px 5px rgba(194, 157, 250, 0.3);
+}
+
+.news_box:hover > .news_box_text{
+	min-height: 60%;
+}
+
 
 .nb1{
 	background-image: url('source/glitch-image-1656764295.png');
@@ -199,24 +211,159 @@ audio {
 }
 
 .news_box_text {
+	transition: min-height 0.5s;
 	padding: 3%;
 	text-shadow: 0px 0px 5px black;
 	font-size: 1.1rem;
 	background: rgba(194, 157, 250, 0.7);
 	min-height: 30%;
+	max-height: 30%;
 	text-align: center;
 	color: lightgray;
 	font-weight: 700;
 	border-radius: 20px 0 20px 0;
+	overflow: hidden;
+}
+
+main{
+	margin-top: 10%;
+}
+
+.about{
+	margin: 0 auto;
+	width: 57%;
+	height: 800px;
+/*		padding-top: 42px;*/
+/*	border: 1px solid white;*/
+	display: flex;
+	justify-content: space-between;
+}
+
+.about_text {
+	color: #FFFFFF;
+	width: 50%;
+}
+
+.about_text:hover {
+/*	background-color: rgba(255,255,255, 0.2)*/
+}
+
+.about_title {
+	display: flex;
+	grid-gap: 30px;
+	font-size: 49px;
+	margin-bottom: 60px;
+	text-shadow: -6px 6px 0px rgba(255,255,255,0.2);
+}
+
+.about_title img{
+	width: 64px;
+	object-fit: contain;
+}
+
+.about_main {
+	font-family: sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	color: #FFFFFF;
+	opacity: 0.7;
+	margin-bottom: 61px;
+}
+.about_facts {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap:  33px 0;
+}
+.about_fact {
+	font-family: sans-serif;
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 27px;
+	text-shadow: -3px 3px 0px rgba(255,255,255,0.2);
 
 }
+
+.about_fact img{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+.about_img {
+	width: 40%;
+	position: relative;
+}
+
+.about_img  div{
+	width: 80%;
+	height: 400px;
+	border-radius: 20px 0 20px 0;
+	overflow: hidden;
+}
+
+
+.img_about_1 {
+	top: 60px;
+	left: 40px;
+	position: absolute;
+	z-index: 1;
+
+}
+.img_about_2 {
+	top: 20px;
+	position: absolute;
+	z-index: 5;
+}
+
+
+
+.img_about_1 img, .img_about_2 img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.playlist {
+	margin: 0 auto;
+	width: 57%;
+	height: 800px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.playlist_image {
+	width: 430px;
+	height: 430px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: solid 17px rgba(122, 102, 204, 0.7);
+  outline: solid 17px rgba(122, 102, 204, 0.3);
+}
+
+.playlist_image img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.playlist_tracks li {
+	font-weight: 700;
+}
+
+
+
+
+
+
 
 .follow-cursor {
   display: block;
   width: 30px;
   height: 30px;
   border: 2px solid lightcyan;
-  box-shadow: 0 0px 15px lightcyan;
+  box-shadow: 0 0px 5px lightcyan;
   border-radius: 50%;
   transform: translateY(-50%) translateX(-50%); /* центрируем кружок */
   position: absolute; /* задаём абсолютное позиционирование, чтобы элемент не влиял на остальные элементы и его можно было бы позиционировать следом за курсором */
@@ -224,3 +371,5 @@ audio {
   pointer-events: none; /* чтобы сквозь элемент можно было взаимодействовать с элементами, находящимися под ним */
   transition: width 0.64s, height 0.64s, border-radius 0.64s, background 0.64s;
 }
+
+

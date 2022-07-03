@@ -15,15 +15,14 @@
 			<nav>
 				<ul>
 					<li><a href="" class="nickname">K1KSs</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">News</a></li>
+					<li><a href="#news">News</a></li>
+					<li><a href="#about">About</a></li>
 					<li><a href="">Music</a></li>
 					<li><a href="">Media</a></li>
-					<li><a href="">Tours</a></li>
 					<li><a href="">Contacts</a></li>
 				</ul>
 			</nav>
-			<div class="header_audio">
+			<div class="header_audio" id="home">
 				<div class="header_new_single">New Single</div>
 				<div class="title">Phonk Dubstep Rock Rap </div>
 				<audio  src="source/sektor_gaza_-_30_let_muzati.net.mp3" class="music"></audio>
@@ -34,7 +33,7 @@
 					<canvas id="canvas"  height="42"></canvas>
 				</div>
 			</div>
-			<div class="news">
+			<div class="news" id="news">
 				<div class="news_box nb1">
 					<div class="news_box_text">Всем привет. Я анонсирую свой первый альбом. Скоро все будет.</div>
 				</div>
@@ -47,6 +46,46 @@
 			</div>
 		</div>
 	</header>
+	<main>
+		<div class="about" id="about">
+			<div class="about_text">
+				<div class="about_title"> <img src="source/chart.png" alt="">K1KSs</div>
+				<div class="about_main">K1KSs — автор музыки, диджей и продюсер, номинант на несколько «Грэмми». Она написал аранжировку для многочисленных поп-звезд, включая Бритни Спирс, Джастина Бибера, Ашера и Бейонсе. <br><br>
+				Его плейлист собрал более 1 миллиарда прослушиваний по всему миру. В его артистической карьере есть такие хиты, как «Language» Портера Робинсона, «How You Love Me» 3LAU и его собственный сингл «OpenEyes». Он также является официальным ремикс-продюссером HAJIME Records. <br><br>Его последняя музыкальная работа «Now I See» набрала около 1 миллиона прослушиваний за первую неделю. В настоящее время K1KSs работает в студии над собственным альбомом, который планируется выпустить в 2022 году.</div>
+				<div class="about_facts">
+					<div class="about_fact"><img src="source/box.png" alt="">Локация: г.Ижевск</div>
+					<div class="about_fact"><img src="source/box.png" alt="">Жанр: Phonk, Rock</div>
+					<div class="about_fact"><img src="source/box.png" alt="">Основан в 2019 г.</div>
+					<div class="about_fact"><img src="source/box.png" alt="">Лейбл: Без лейбла</div>
+				</div>
+			</div>
+			<div class="about_img">
+				<div class="img_about_1">
+					<img src="https://images.unsplash.com/photo-1601856254555-a9c0ebef8af3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80" alt="" >
+				</div>
+				<div class="img_about_2">
+					<img src="https://images.unsplash.com/photo-1531651008558-ed1740375b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" >
+				</div>
+			</div>
+		</div>
+		<div class="playlist">
+			<div class="playlist_image">
+				<img src="source/photo-1531077435623-9520a54b5046.avif" alt="">
+			</div>
+			<div class="playlist_tracks">
+				<div class="playlist_tracks_title">PLAYLIST</div>
+				<div class="playlist_tracks_player"></div>
+				<ol>
+					<li>K1KSs - Now I See</li>
+					<li>K1KSs - OpenEyes</li>
+					<li>K1KSs - HellRisen</li>
+					<li>K1KSs - Nova Pulse</li>
+					<li>K1KSs - Infinity Rush</li>
+					<li>K1KSs - Miyagi, Andy Panda - <span>Там Ревели Горы</span> (K1KSs Remix)</li>
+				</ol>
+			</div>
+		</div>
+	</main>		
 	<div class="follow-cursor"></div>
 	<script src='app.js'></script>
 </body>
