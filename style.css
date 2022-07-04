@@ -142,6 +142,7 @@ audio {
 }
 
 .musicBarBox{
+	display: flex;
 	margin-right:30px;
 }
 
@@ -163,10 +164,35 @@ audio {
 	filter: blur(1px);
 }
 
-#canvas {
-	cursor: pointer;
+.musicBarProgress{
+	display: flex;
+	align-items: center;
+	width: 100%;
 }
 
+/*progress {
+	cursor: pointer;
+	width: 100%;
+	height: 10px;
+}*/
+
+.progress {
+	cursor: pointer;
+  width: 100%;
+  height: 6px;
+  background: #e1e4e8;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+
+.progress_bar{
+	cursor: pointer;
+	width: 0;
+  display: block;
+  height: 100%;
+  background: cyan;
+}
 
 .news {
 	margin-top: 200px;
@@ -385,8 +411,11 @@ main{
 }
 
 @media screen and (max-width: 900px) {
-		nav {
-	    margin-bottom: 70px;
+	nav {
+	  margin-bottom: 70px;
+	}
+	.header_container li {
+		display: none;
 	}
 	.title {
 		margin-bottom: 12%;

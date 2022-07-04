@@ -1,28 +1,13 @@
 let musicBar = document.querySelector('.musicBar')
 let musicBarBtn = document.querySelector('.musicBarBtn')
 
-let btn = document.querySelector('button')
+let progress = document.querySelector('.progress')
+let progressBar = document.querySelector('.progress_bar')
 let audio_dur 
 let audio = document.querySelector('.music');
-window.onload = () => {
-	audio_dur = audio.duration;
-}
 
-let canvas = document.querySelector('#canvas');
-let ctx = canvas.getContext('2d');
-let cty = canvas.getContext('2d');
-ctx.beginPath();
-let x = canvas.parentNode.offsetWidth - 50
-if((canvas.parentNode.offsetWidth - 50)!= x ){
-	x = canvas.parentNode.offsetWidth - 50
-}
-canvas.setAttribute('width', `${x}px`) ;
-let y = canvas.offsetWidth - 70
-ctx.strokeStyle = 'lightcyan';
-ctx.lineWidth = 2;
-ctx.moveTo(0, 20);
-ctx.lineTo(y, 20);
-ctx.stroke();
+
+let y = progress.offsetWidth;
 
 
 let musicDraftCheck = false
@@ -31,26 +16,21 @@ let startPlay = 0
 musicBarBtn.addEventListener('click', playMusic)
 
 function playMusic () {
+	audio_dur = audio.duration;
 	audio.play()	
 	if ( musicDraftCheck == false) {
-		
 		musicDraftCheck = true
 		timer = setInterval(() => {
-			startPlay += (y/audio_dur)/100
-
-			draftMusic(startPlay)
-			if (startPlay >= y) {
+			startPlay += ((y/audio_dur)/y*100)/10
+			if (startPlay/100*y >= y) {
 				clearInterval(timer)
 				musicDraftCheck = false;
-				startPlay = 20 
-				ctx.strokeStyle = 'lightcyan';
-				ctx.lineWidth = 2;
-				ctx.moveTo(0, 20);
-				ctx.lineTo(y, 20);
-				ctx.stroke();
+				startPlay = 0 
+				console.log(audio.currentTime)
+				audio.load()
 			}
-			
-		}, 10)
+			draftMusic(startPlay)
+		}, 100)
 
 	} else if ( musicDraftCheck == true) { 
 		audio.pause()
@@ -60,39 +40,26 @@ function playMusic () {
 }
 
 function draftMusic(i) {
-	cty.beginPath();
-	cty.strokeStyle = 'cyan';
-	cty.moveTo(0, 20);
-	cty.lineTo(i, 20);
-	cty.stroke();
-	// cty.beginPath();
-	// cty.moveTo(i,18);
-	// cty.lineTo(i, 22);
-	cty.stroke();
+	progressBar.style.width = `${i}%`
 }
 
-canvas.addEventListener('click' , (event) => {
-	let pressOnMusicLine = event.clientX - canvas.offsetLeft 
-	console.log(pressOnMusicLine, startPlay)
+progress.addEventListener('click' , (event) => {
+	audio_dur = audio.duration;
+	let pressOnMusicLine = (event.clientX - progress.offsetLeft)/y*100 
+	console.log(event.clientX, pressOnMusicLine, startPlay,audio.currentTime)
 	if (pressOnMusicLine >= startPlay) {
-		audio.currentTime+=(pressOnMusicLine - startPlay)*(audio_dur/y);
+		audio.currentTime+= (pressOnMusicLine - startPlay)*(audio_dur/y)*10;
 		draftMusic(pressOnMusicLine)
 		startPlay = pressOnMusicLine
 		console.log(startPlay, audio.currentTime, startPlay)
 	} else {
-		audio.currentTime-=(startPlay -pressOnMusicLine )*(audio_dur/y);
+		audio.currentTime-=(startPlay -pressOnMusicLine )*(audio_dur/y)*10;
 		draftMusic(0)
-		ctx.strokeStyle = 'lightcyan';
-		ctx.lineWidth = 2;
-		ctx.moveTo(0, 20);
-		ctx.lineTo(y, 20);
-		ctx.stroke();
-		console.log('down')
 		draftMusic(pressOnMusicLine)
 		startPlay = pressOnMusicLine
 		console.log(startPlay, audio.currentTime,  startPlay)
 	}
-	
+	// audio.play()	
 })
 
 
