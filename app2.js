@@ -12,18 +12,20 @@ const startAnim = () => {
 	// 	}
 	// },100)
 
+	setTimeout(() => {
+		let text = 'K1KSs Prod.'
+		let a = text.split('')
+		// a.reverse()
+		startTitle.textContent = ''
+		for ( let i = 0; i < a.length; i++) {
+			setTimeout(()=> {
+				let newg = document.createElement('span')
+				newg.textContent = `${a[i]}`
+				startTitle.appendChild(newg)
+			}, i*200)
+		}
 
-	let a = startTitle.textContent.split('')
-	// a.reverse()
-	startTitle.textContent = ''
-	for ( let i = 0; i < a.length; i++) {
-		setTimeout(()=> {
-			let newg = document.createElement('span')
-			newg.textContent = `${a[i]}`
-			startTitle.appendChild(newg)
-		}, i*200)
-	}
-
+	},500)
 
 
 
@@ -36,7 +38,7 @@ const startAnim = () => {
 	setTimeout(() => {
 		start.style.transform= 'translateX(-100vw)';
 		document.body.style.overflowY = 'scroll'
-	}, 3000)
+	}, 3500)
 }
 
 startAnim();
