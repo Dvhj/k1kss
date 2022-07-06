@@ -15,9 +15,9 @@ html {
 }
 
 body {
-	background: #1C1B21;;
+	background: #1C1B21;
 	overflow-x: hidden;
-
+	overflow-y: hidden;
 }
 
 header {
@@ -29,9 +29,27 @@ header {
 /*	background-attachment: fixed;*/
 }
 
+.start {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background: black;
+	display: flex;
+	text-align: center;
+	flex-direction: column ;
+	justify-content: center;
+	transition: transform 1s;
+}
+
+.start_title{
+	color: rgba(255, 255, 255, 0.8);
+	font-size: calc(40px + 70 * (100vw / 1920));
+	text-shadow: -6px 6px 0px rgba(255,255,255,0.2);
+}
+
 .header_container {
 	margin: 0 auto;
-	width: 57%;
+	width: 57%; 
 	padding-top: 42px;
 }
 
@@ -458,5 +476,8 @@ main{
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
+	}
+	.follow-cursor {
+		display: none;
 	}
 }
